@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ZWaveDevice xmlns="http://www.pepper1.net/zwavedb/xml-schemata/z-wave" schemaVersion="2">
+  <descriptorVersion>1</descriptorVersion>
+  <deviceData>
+    <manufacturerId value="0159"/>
+    <productType value="0001"/>
+    <productId value="0052"/>
+    <libType value="03"/>
+    <protoVersion value="04"/>
+    <protoSubVersion value="05"/>
+    <appVersion value="01"/>
+    <appSubVersion value="01"/>
+    <basicClass value="04"/>
+    <genericClass value="11"/>
+    <specificClass value="01"/>
+    <optional value="true"/>
+    <listening value="true"/>
+    <routing value="true"/>
+    <beamSensor>0</beamSensor>
+  </deviceData>
+  <deviceDescription>
+    <description>
+      <lang xml:lang="en">DIN dimmer</lang>
+    </description>
+    <wakeupNote>
+       <lang xml:lang="en"></lang>
+    </wakeupNote>
+    <inclusionNote>
+       <lang xml:lang="en">Press the service button S for more than 2 seconds.</lang>
+    </inclusionNote>
+    <brandName>Qubino</brandName>
+    <productLine>Z-wave dimmer</productLine>
+    <productName>DIN dimmer ZMNHSD1</productName>
+    <productCode>ZMNHSD1</productCode>
+    <productVersion>1.1</productVersion>
+  </deviceDescription>
+  <commandClasses>
+    <commandClass id="0020" version="1" supported="true" controlled="true" secure="false" inNIF="true"/>
+    <commandClass id="0025" version="1" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0026" version="3" supported="true" controlled="true" secure="false" inNIF="true"/>
+    <commandClass id="0027" version="1" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0032" version="4" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0059" version="2" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="005a" version="1" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="005e" version="2" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0070" version="1" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0072" version="2" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0073" version="1" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0085" version="2" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="0086" version="2" supported="true" controlled="false" secure="false" inNIF="true"/>
+    <commandClass id="008e" version="3" supported="true" controlled="false" secure="false" inNIF="true"/>
+  </commandClasses>
+  <assocGroups>
+    <assocGroup number="1" maxNodes="1">
+      <description>
+        <lang xml:lang="en">Lifeline group (reserved for communication with the main controller), 1 node allowed.</lang>
+      </description>
+    </assocGroup>
+    <assocGroup number="2" maxNodes="16">
+      <description>
+        <lang xml:lang="en">Basic on/off (triggered at change of the input I1 state and reflecting its state) up to 16 nodes.</lang>
+      </description>
+    </assocGroup>
+    <assocGroup number="3" maxNodes="16">
+      <description>
+        <lang xml:lang="en">Start level change/stop level change (triggered at change of the input I1 state and reflecting its state) up to 16 nodes.</lang>
+      </description>
+    </assocGroup>
+    <assocGroup number="4" maxNodes="16">
+      <description>
+        <lang xml:lang="en">Multilevel set (triggered at changes of state/value of the DIN dimmer) up to 16 nodes.</lang>
+      </description>
+    </assocGroup>
+    <assocGroup number="5" maxNodes="16">
+      <description>
+        <lang xml:lang="en">Multilevel sensor report (triggered at change of temperature sensor) up to 16 nodes.</lang>
+      </description>
+    </assocGroup>
+  </assocGroups>
+  <configParams>
+    <configParam number="1" type="constant" size="1" default="00">
+      <name>
+        <lang xml:lang="en">Input switch type</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Defines the type of the used switch.</lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+           <lang xml:lang="en">Mono-stable switch type (push button)</lang>
+        </description>
+      </value>
+      <value from="01" to="01">
+         <description>
+           <lang xml:lang="en">Bi-stable switch type</lang>
+         </description>
+      </value>
+    </configParam>
+    <configParam number="5" type="constant" size="1" default="00">
+      <name>
+        <lang xml:lang="en">Working mode</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Changes the module presentation on the user interface. NOTE: After parameter change, first exclude module (without setting parameters to default value), then wait at least 30s and then reinclude the module!</lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+           <lang xml:lang="en">Dimmer mode</lang>
+        </description>
+      </value>
+      <value from="01" to="01">
+         <description>
+           <lang xml:lang="en">Switch mode</lang>
+         </description>
+      </value>
+    </configParam>
+    <configParam number="10" type="constant" size="2" default="00ff">
+      <name>
+        <lang xml:lang="en">(De)Activate ALL ON / ALL OFF</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Deactives or activates responding to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system.</lang>
+      </description>
+      <value from="00ff" to="00ff">
+        <description>
+          <lang xml:lang="en">ALL ON active, ALL OFF active</lang>
+        </description>
+      </value>
+      <value from="0000" to="0000">
+        <description>
+           <lang xml:lang="en">ALL ON is not active, ALL OFF is not active</lang>
+        </description>
+      </value>
+      <value from="0001" to="0001">
+        <description>
+          <lang xml:lang="en">ALL ON is not active, ALL OFF active</lang>
+        </description>
+      </value>
+      <value from="0002" to="0002">
+        <description>
+          <lang xml:lang="en">ALL ON active, ALL OFF is not active</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="11" type="range" size="2" default="0000">
+      <name>
+        <lang xml:lang="en">Automatic turning OFF output after set time </lang>
+      </name>
+      <description>
+        <lang xml:lang="en"></lang>
+      </description>
+      <value from="0000" to="0000">
+        <description>
+          <lang xml:lang="en">Auto OFF disabled.</lang>
+        </description>
+      </value>
+      <value from="0001" to="7f18">
+        <description>
+          <lang xml:lang="en">1 - 32536 = 1 second - 32536 seconds Auto OFF enabled with define time, step is 1 second.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="12" type="range" size="2" default="0000">
+      <name>
+        <lang xml:lang="en">Automatic turning ON output after set time </lang>
+      </name>
+      <description>
+        <lang xml:lang="en"></lang>
+      </description>
+      <value from="0000" to="0000">
+        <description>
+          <lang xml:lang="en">Auto ON disabled.</lang>
+        </description>
+      </value>
+      <value from="0001" to="7f18">
+        <description>
+          <lang xml:lang="en">1 - 32536 = 1 second - 32536 seconds Auto ON enabled with defined time, step is 1 second.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="21" type="constant" size="1" default="00">
+      <name>
+         <lang xml:lang="en">Enable/Disable Double click function</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">If Double click function is enabled, a fast double click on the push button will set dimming power at maximum dimming value.</lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+          <lang xml:lang="en">Double click disabled</lang>
+        </description>
+      </value>
+      <value from="01" to="01">
+        <description>
+          <lang xml:lang="en">Double click enabled</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="30" type="constant" size="1" default="00">
+      <name>
+        <lang xml:lang="en">Saving the state of the device after a power failure</lang>
+      </name>
+      <description>
+        <lang xml:lang="en"></lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+          <lang xml:lang="en">DIN dimmer module saves its state before power failure (it returns to the last position saved before a power failure).</lang>
+        </description>
+      </value>
+      <value from="01" to="01">
+        <description>
+          <lang xml:lang="en">DIN dimmer module does NOT save the state after a power failure, it returns to &quot;off&quot; position.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="40" type="range" size="1" default="05">
+      <name>
+        <lang xml:lang="en">Power reporting in Watts on power change</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Set value means percentage, set value from 0 - 100=0% - 100%. NOTE: if power changed is less than 1W, the report is not sent (pushed), independent of percentage set. </lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+          <lang xml:lang="en">reporting disabled.</lang>
+        </description>
+      </value>
+      <value from="01" to="64" unit="%">
+        <description>
+          <lang xml:lang="en">1 - 100 = 1% - 100% Reporting enabled. Power report is sent (pushed) only when actual power in Watts in real time changes for more than set percentage comparing to previous actual power in Watts, step is 1%.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="42" type="range" size="2" default="012c">
+      <name>
+        <lang xml:lang="en">Power reporting in Watts by time interval</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Set value means time interval (0 - 32767) in seconds, when power report is sent. </lang>
+      </description>
+      <value from="0000" to="0000">
+        <description>
+          <lang xml:lang="en">reporting disabled.</lang>
+        </description>
+      </value>
+      <value from="0001" to="7fff" unit="%">
+        <description>
+          <lang xml:lang="en">1 - 32767 = 1 second - 32767 seconds Reporting enabled. Power report is sent (push) only when actual power in Watts in real time changes for more than set percentage comparing to previous actual power in Watts, step is 1%.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="60" type="range" size="1" default="01">
+      <name>
+        <lang xml:lang="en">Minimum dimming value</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">NOTE: The minimum level may not be higher than the maximum level! 1% min. dimming value is defined by Z-Wave multilevel device class. </lang>
+      </description>
+      <value from="01" to="62">
+        <description>
+          <lang xml:lang="en">1 - 98 = 1% - 98%, step is 1%. Minimum dimming values is set by entered value.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="61" type="range" size="1" default="63">
+      <name>
+        <lang xml:lang="en">Maximum dimming value</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">NOTE: The maximum level may not be lower than the minimum level! 99% max. dimming value is defined by Z-Wave multilevel device class.</lang>
+      </description>
+      <value from="02" to="63">
+        <description>
+          <lang xml:lang="en">2 - 99 = 2% - 99%, step is 1%. Maximum dimming values is set by entered value.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="65" type="range" size="2" default="0064">
+      <name>
+        <lang xml:lang="en">Dimming time (soft on/off)</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI (BasicSet).</lang>
+      </description>
+      <value from="0001" to="00ff">
+        <description>
+          <lang xml:lang="en">50 - 255 = 500 mseconds - 2550 mseconds (2,55s), step is 10 mseconds.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="66" type="range" size="2" default="0003">
+      <name>
+        <lang xml:lang="en">Dimming time when key pressed</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1 or associated device.</lang>
+      </description>
+      <value from="0001" to="00ff">
+        <description>
+          <lang xml:lang="en">1 - 255 = 1 second – 255 seconds.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="67" type="constant" size="1" default="00">
+      <name>
+        <lang xml:lang="en">Ignore start level</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">This parameter is used with association group 3. A receiving device SHOULD respect the start level if the Ignore Start Level bit is 0. A receiving device MUST ignore the start level if the Ignore Start Level bit is 1.</lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+          <lang xml:lang="en">Respect start level</lang>
+        </description>
+      </value>
+      <value from="01" to="01">
+        <description>
+          <lang xml:lang="en">Ignore start level</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="68" type="range" size="2" default="0000">
+      <name>
+        <lang xml:lang="en">Dimming duration</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">This parameter is used with association group 3. The Duration field MUST specify the time that the transition should take from the current value to the new target value. A supporting device SHOULD respect the specified Duration value.</lang>
+      </description>
+      <value from="0000" to="0000">
+        <description>
+          <lang xml:lang="en">dimming duration according to parameter 66</lang>
+        </description>
+      </value>
+      <value from="0001" to="007f">
+        <description>
+          <lang xml:lang="en">1 - 127 = from 1 to 127 seconds.</lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="110" type="range" size="2" default="7f18">
+      <name>
+        <lang xml:lang="en">Temperature sensor offset settings Notification Type and Event</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">Set value is added or subtracted to actual measured value by sensor.</lang>
+      </description>
+      <value from="7f18" to="7f18">
+        <description>
+          <lang xml:lang="en">32536 - offset is 0.0C</lang>
+        </description>
+      </value>
+      <value from="0001" to="0064">
+        <description>
+          <lang xml:lang="en">1 - 100 = value from 0.1 °C to 10.0 °C is added to actual measured temperature. </lang>
+        </description>
+      </value>
+      <value from="03e9" to="044c">
+        <description>
+          <lang xml:lang="en">1001 - 1100 = value from -0.1 °C to -10.0 °C is subtracted to actual measured temperature </lang>
+        </description>
+      </value>
+    </configParam>
+    <configParam number="120" type="range" size="1" default="05">
+      <name>
+        <lang xml:lang="en">Digital temperature sensor reporting</lang>
+      </name>
+      <description>
+        <lang xml:lang="en">If digital temperature sensor is connected, module reports measured temperature on temperature change defined by this parameter.</lang>
+      </description>
+      <value from="00" to="00">
+        <description>
+          <lang xml:lang="en">Reporting disabled</lang>
+        </description>
+      </value>
+      <value from="01" to="7f">
+        <description>
+          <lang xml:lang="en">1 - 127 = 0,1°C - 12,7°C, step is 0,1°C.</lang>
+        </description>
+      </value>
+    </configParam>
+  </configParams>
+  <resourceLinks>    
+    <deviceImage url="http://qubino.com/wp-content/uploads/2016/09/thumb-din-dimmer.png" />
+  </resourceLinks>
+</ZWaveDevice>
